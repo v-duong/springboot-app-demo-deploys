@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboottest-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboottest
+  template:
+    metadata:
+      labels:
+        app: springboottest
+    spec:
+      containers:
+      - name: springboottest
+        image: vncntduong/javatestapp:v2
+        ports:
+        - containerPort: 80

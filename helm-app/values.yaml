@@ -1,0 +1,6 @@
+replicaCount: 1
+
+image:
+  repository: vncntduong/javatestapp
+  tag: latest
+  pullPolicy: IfNotPresent

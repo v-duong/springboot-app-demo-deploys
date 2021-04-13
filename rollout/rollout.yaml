@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: springboottest-deployment
+spec:
+  replicas: 2
+  strategy:
+    canary:
+      steps:
+      - setWeight: 20
+      - pause: {duration: 30}
+      - setWeight: 40
+      - pause: {duration: 20}
+      - setWeight: 60
+      - pause: {duration: 20}
+      - setWeight: 80
+      - pause: {duration: 20}
+  selector:
+    matchLabels:
+      app: springboottest
+  template:
+    metadata:
+      labels:
+        app: springboottest
+    spec:
+      containers:
+      - name: springboottest
+        image: vncntduong/javatestapp:v2
+        ports:
+        - containerPort: 80

@@ -25,6 +25,6 @@ spec:
     spec:
       containers:
       - name: springboottest
-        image: vncntduong/javatestapp:tilt-build-1617826284
+        image: vncntduong/javatestapp:tilt-build-1617825912
         ports:
         - containerPort: 80
